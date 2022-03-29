@@ -28,6 +28,11 @@ public class ClienteController {
         return clienteService.save(cliente);
     }
 
+    @PostMapping("/getClientByDocument")
+    public Flux<Cliente> getByDocument(@RequestBody Cliente cliente) {
+        return clienteService.getByDocument(cliente);
+    }
+
     @PutMapping
     public Mono<Cliente> put(@RequestBody Cliente cliente) {
         return clienteService.save(cliente);

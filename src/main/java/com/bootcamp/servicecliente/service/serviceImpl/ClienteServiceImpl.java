@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.util.Objects;
+
 
 @Service
 public class ClienteServiceImpl implements ClienteService {
@@ -26,6 +28,12 @@ public class ClienteServiceImpl implements ClienteService {
 
     public Mono<Cliente> save(Cliente cliente) {
         return clienteRepository.save(cliente);
+    }
+
+    public Flux<Cliente> getByDocument(Cliente cliente) {
+        return clienteRepository
+                .findByTipoDocumentoAndNumeroDocumento(cliente.getTipoDocumento(),
+                        cliente.getNumeroDocumento());
     }
 
     public Mono<Void> deleteById(String id) {

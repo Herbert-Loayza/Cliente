@@ -9,5 +9,6 @@ public interface ClienteService {
     public Flux<Cliente>findAll();
     public Mono<Cliente> findById(String id);
     public Mono<Cliente>save(Cliente cliente);
+    public Flux<Cliente> getByDocument(Cliente cliente);
     public Mono<Void> deleteById(String id);
 }
